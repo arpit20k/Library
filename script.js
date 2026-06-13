@@ -36,11 +36,23 @@ displayLibrary();
         card.classList.add("card");
 
         card.innerHTML = `
-            <h2>${book.title}</h2>
-            <p>Author: ${book.author}</p>
-            <p>Status: ${book.status}</p>
-            <button>Toggle Status</button>
-        `;
+    <h2>${book.title}</h2>
+    <p><strong>Author:</strong> ${book.author}</p>
+
+    <p class="${
+        book.status ? "status-read" : "status-unread"
+    }">
+        ${book.status ? "✓ Read" : "✗ Not Read"}
+    </p>
+
+    <button class="toggle-btn">
+        Toggle Status
+    </button>
+
+    <button class="delete-btn">
+        Delete
+    </button>
+`;
         const button = card.querySelector("button");
 
         button.addEventListener("click", () => {
